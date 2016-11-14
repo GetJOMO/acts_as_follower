@@ -29,7 +29,7 @@ module ActsAsFollower #:nodoc:
       # Does not allow duplicate records to be created.
       def follow(followable)
         if self != followable
-          params = {followable_id: followable.id, followable_type: parent_class_name(followable)}
+          params = {followable_id: followable.id, followable_type: 'User'}
           self.follows.where(params).first_or_create!
         end
       end
