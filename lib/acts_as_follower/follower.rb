@@ -69,7 +69,7 @@ module ActsAsFollower #:nodoc:
           joins(:followings).
           where('follows.blocked'         => false,
                 'follows.follower_id'     => self.id,
-                'follows.follower_type'   => parent_class_name(self),
+                'follows.follower_type'   => 'User',
                 'follows.followable_type' => followable_type)
         if options.has_key?(:limit)
           followables = followables.limit(options[:limit])
